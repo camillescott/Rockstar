@@ -24,7 +24,6 @@ setup(
         'Programming Language :: Python :: 3.8',
     ],
     description="Utilities for Relion Cryo-EM data processing.",
-    install_requires=requirements,
     license="modified BSD",
     long_description=readme,
     include_package_data=True,
