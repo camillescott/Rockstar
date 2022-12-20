@@ -1,4 +1,4 @@
-name: rock
+name: rockstar-0.1
 channels:
   - conda-forge
   - defaults

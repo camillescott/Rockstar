@@ -64,10 +64,8 @@ def ArgumentParse():
         print_error("Unknown Error")
     return args
 
-#Main
 
-if __name__ == '__main__':
-
+def main():
     args = ArgumentParse()
 
     #Subset mode is used for recovering information from an intact star file
