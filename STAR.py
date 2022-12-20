@@ -209,7 +209,8 @@ class STAR():
 
     #Speficialized function for STAR Modification
     def human_recenter(self, minx, miny, maxx, maxy, d, inplace = True):
-        df = self._content[self._content.rlnClassNumber.isin(d.keys())]
+        df = self._content[self._content.rlnClassNumber.isin([int(k) for k in d.keys()])]
+
         if self.get_star_version() == "3.0":
             downscale_factor = int(input("Please provide the downscale factor of parcticle stacks:\n"))
             for idx, row in df.iterrows():
@@ -248,6 +249,7 @@ class STAR():
             Relion 3.1 star file = optics_header + optics + particle_header + particles_column + content
             Relion 3.0 star file = particle_header + particles_column + content
         """
+
         if self._version == "3.0":
             h = self._particles_header + "_rlnImageName #1\n"
             for i,j in enumerate(self._content.columns.tolist()):

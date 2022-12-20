@@ -20,7 +20,7 @@ def getImageName(filename,filepath = ""):
 def ArgumentParse():
     parser = argparse.ArgumentParser(fromfile_prefix_chars='@',formatter_class=argparse.RawDescriptionHelpFormatter,\
                                      description='\033[31mBasic Python Parser for star files\033[0m')
-    parser.add_argument("mode", choices = ["subset", "hr", "exclude" ],\
+    parser.add_argument("mode", choices = ["subset", "hr", "exclude", "info" ],\
         type = str, help = "Specify which mode you would like to run")
     parser.add_argument("--i", required = True, metavar = '*.star', type = str, \
         help = "Provide the filename of input star")
@@ -107,6 +107,7 @@ if __name__ == '__main__':
         else:
             assert (ip.has_required_columns(['rlnOriginXAngst','rlnOriginYAngst','rlnClassNumber',\
                 'rlnCoordinateX','rlnCoordinateY'])), "Required columns are missing from star file"
+        #print('input DF:', ip._content)
         mrcs_dim = get_image_dimensions(args.mrcs, dimension = "xn")
         half_box_size = mrcs_dim[0] // 2
         coord_min_x = half_box_size
@@ -114,7 +115,12 @@ if __name__ == '__main__':
         coord_max_x = args.micsx - half_box_size
         coord_max_y = args.micsy - half_box_size
         class_nr = mrcs_dim[1]
+        #print("mrcs_dim", mrcs_dim)
+        #print("coords:", coord_min_x, coord_max_x, coord_min_y, coord_max_y)
+        #print("class nr: ", class_nr)
         dict_class_xy = relion_display_parser(args.mrcs, class_nr, scale = args.scale)
+
+        #print("dict class:", dict_class_xy)
         ip.human_recenter(coord_min_x, coord_min_y, coord_max_x, coord_max_y, dict_class_xy)
         ip.to_star(args.o)
         print_info("Done")
