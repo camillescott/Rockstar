@@ -8,7 +8,7 @@ import os
 import pandas as pd
 import numpy as np
 import sys
-from RelionTools import *
+from .RelionTools import *
 
 class STAR():
     """

@@ -8,7 +8,7 @@ import os
 import math
 import subprocess
 from datetime import date
-from MyTools import *
+from .MyTools import *
 
 # General Relion Tools
 def is_relion_callable():

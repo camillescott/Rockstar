@@ -3,7 +3,7 @@
 #   Written by Zhuang Li, Purdue University. Last modified at 2021-03-13   #
 #               Tested on Python 3.8.8 Pandas v0.22.0                      #
 ############################################################################
-from STAR import *
+from .STAR import *
 
 def getImageName(filename,filepath = ""):
     try:

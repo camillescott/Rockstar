@@ -5,7 +5,7 @@
 # Still under development...                                           #
 ########################################################################
 from sklearn.cluster import KMeans
-import rockstar
+import .rockstar
 import matplotlib.pyplot as plt
 import pandas as pd
 import argparse
